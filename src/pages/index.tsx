@@ -1,6 +1,6 @@
 import { Flex, useBreakpointValue } from "@chakra-ui/react";
+import ProfileUser from "../components/ProfileUser";
 import SocialItems from "../components/SocialItems";
-import UserBar from "../components/UserBar";
 
 export default function Home() {
 
@@ -22,7 +22,7 @@ export default function Home() {
       justify='center'
       gap={20}
     >
-      <UserBar />
+      <ProfileUser />
       <SocialItems />
 
     </Flex>

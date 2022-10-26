@@ -8,7 +8,7 @@ type UserProps = {
   bio: string;
 };
 
-export default function UserBar() {
+export default function ProfileUser() {
 
   const [myUser, setMyUser] = useState<UserProps>({
     name: '',
@@ -29,8 +29,6 @@ export default function UserBar() {
   }, []);
 
   return (
-    <Flex direction='column' alignItems='center' gap={12} w='100%'>
-      <AvatarUser name={myUser.name} avatar={myUser.avatar} bio={myUser.bio} />
-    </Flex>
+    <AvatarUser name={myUser.name} avatar={myUser.avatar} bio={myUser.bio} />
   )
 }

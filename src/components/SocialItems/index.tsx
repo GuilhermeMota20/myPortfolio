@@ -1,9 +1,9 @@
-import { Box, Flex, SimpleGrid } from "@chakra-ui/react";
+import { Flex, SimpleGrid } from "@chakra-ui/react";
 import Item from "./Item";
 
+import { BsFillFilePersonFill } from 'react-icons/bs';
 import { GrLinkedinOption } from 'react-icons/gr';
 import { TfiGithub } from 'react-icons/tfi';
-import { BsFillFilePersonFill } from 'react-icons/bs';
 
 export default function SocialItems() {
 
