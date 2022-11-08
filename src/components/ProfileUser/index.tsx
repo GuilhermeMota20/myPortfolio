@@ -1,6 +1,4 @@
-import { Avatar, Flex, SimpleGrid, Stack, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
-import AvatarUser from "./AvatarUser";
+import { Avatar, Flex, Text } from "@chakra-ui/react";
 
 type UserProps = {
   name: string;
@@ -8,27 +6,16 @@ type UserProps = {
   bio: string;
 };
 
-export default function ProfileUser() {
-
-  const [myUser, setMyUser] = useState<UserProps>({
-    name: '',
-    avatar: '',
-    bio: '',
-  });
-
-  useEffect(() => {
-    fetch('https://api.github.com/users/GuilhermeMota20')
-      .then(response => response.json())
-      .then(data =>
-        setMyUser({
-          name: data.name,
-          avatar: data.avatar_url,
-          bio: data.bio,
-        })
-      );
-  }, []);
+export default function ProfileUser({ name, avatar, bio }: UserProps) {
 
   return (
-    <AvatarUser name={myUser.name} avatar={myUser.avatar} bio={myUser.bio} />
+    <Flex direction='column' alignItems='center' gap='4'>
+      <Avatar name={name} src={avatar} size='xl' />
+
+      <Flex direction='column' alignItems='center'>
+        <Text>{name}</Text>
+        <Text color='gray.500'>{bio}</Text>
+      </Flex>
+    </Flex>
   )
 }

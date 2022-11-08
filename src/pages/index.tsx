@@ -1,13 +1,37 @@
 import { Flex, useBreakpointValue } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import ProfileUser from "../components/ProfileUser";
-import SocialItems from "../components/SocialItems";
 
-export default function Home() {
+type ProfileProps = {
+  name: string;
+  avatar: string;
+  bio: string;
+};
+
+export default function Home({ name, avatar, bio }: ProfileProps) {
 
   const isWideVersio = useBreakpointValue({
     base: true,
     lg: false,
   })
+
+  const [myUser, setMyUser] = useState<ProfileProps>({
+    name: '',
+    avatar: '',
+    bio: '',
+  });
+
+  useEffect(() => {
+    fetch('https://api.github.com/users/GuilhermeMota20')
+      .then(response => response.json())
+      .then(data =>
+        setMyUser({
+          name: data.name,
+          avatar: data.avatar_url,
+          bio: data.bio,
+        })
+      );
+  }, []);
 
   return (
     <Flex
@@ -22,9 +46,7 @@ export default function Home() {
       justify='center'
       gap={20}
     >
-      <ProfileUser />
-      <SocialItems />
-
+      <ProfileUser avatar={myUser.avatar} bio={myUser.bio} name={myUser.name} />
     </Flex>
   )
 }
