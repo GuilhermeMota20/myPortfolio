@@ -1,0 +1,16 @@
+html {
+    // overflow-y: scroll;
+
+    body {
+        overflow-x: hidden !important;
+    }
+}
+
+// Scroll
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(246,92,110,1);
+}
