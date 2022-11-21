@@ -5,11 +5,11 @@ import type { AppProps } from 'next/app';
 import { theme } from '../styles/theme';
 import "../styles/default.scss";
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { makeServer } from '../services/mirage';
+// import { makeServer } from '../services/mirage';
 
 const queryClient = new QueryClient();
 
-makeServer();
+// makeServer();
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

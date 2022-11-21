@@ -1,52 +1,63 @@
-import { Flex, useBreakpointValue } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { Stack } from "@chakra-ui/react";
+import { useState } from "react";
+import Header from "../components/Header";
 import ProfileUser from "../components/ProfileUser";
+import TabsContainer from "../components/TabsContainer";
 
-type ProfileProps = {
-  name: string;
-  avatar: string;
-  bio: string;
-};
+export default function Home() {
+  const [isLoaded, setIsLoaded] = useState(false);
 
-export default function Home({ name, avatar, bio }: ProfileProps) {
+  const userData = {
+    name: 'Guilherme Mota',
+    bio: 'Frontend Developer',
+    avatar: 'https://avatars.githubusercontent.com/u/70167159?v=4'
+  }
 
-  const isWideVersio = useBreakpointValue({
-    base: true,
-    lg: false,
-  })
-
-  const [myUser, setMyUser] = useState<ProfileProps>({
-    name: '',
-    avatar: '',
-    bio: '',
-  });
-
-  useEffect(() => {
-    fetch('https://api.github.com/users/GuilhermeMota20')
-      .then(response => response.json())
-      .then(data =>
-        setMyUser({
-          name: data.name,
-          avatar: data.avatar_url,
-          bio: data.bio,
-        })
-      );
-  }, []);
+  const dataCard = [
+    {
+      id: '1',
+      title: 'teste 1',
+      description: 'description 1',
+      image_url: 'https://media-exp1.licdn.com/dms/image/D4D16AQHQDUewixmMAQ/profile-displaybackgroundimage-shrink_350_1400/0/1667331268258?e=1674086400&v=beta&t=t36u2F4bqWBKDFKoaGJbD6_zRul2MPaBgqMiDeb3Fw8',
+      link_git: 'lalala',
+      link_demo: 'lalala',
+    },
+    {
+      id: '2',
+      title: 'teste 2',
+      description: 'description 2',
+      image_url: 'https://media-exp1.licdn.com/dms/image/D4D16AQHQDUewixmMAQ/profile-displaybackgroundimage-shrink_350_1400/0/1667331268258?e=1674086400&v=beta&t=t36u2F4bqWBKDFKoaGJbD6_zRul2MPaBgqMiDeb3Fw8',
+      link_git: 'lalala',
+      link_demo: 'lalala',
+    },
+    {
+      id: '3',
+      title: 'teste 3',
+      description: 'description 3',
+      image_url: 'https://media-exp1.licdn.com/dms/image/D4D16AQHQDUewixmMAQ/profile-displaybackgroundimage-shrink_350_1400/0/1667331268258?e=1674086400&v=beta&t=t36u2F4bqWBKDFKoaGJbD6_zRul2MPaBgqMiDeb3Fw8',
+      link_git: 'lalala',
+      link_demo: 'lalala',
+    },
+  ]
 
   return (
-    <Flex
-      as='section'
+    <Stack
+      as='main'
+      userSelect='none'
       w='100%'
-      h='100vh'
-      maxW={580}
+      h='100%'
       mx='auto'
+      py='2rem'
       px='6'
       direction='column'
       alignItems='center'
-      justify='center'
-      gap={20}
+      gap={9}
     >
-      <ProfileUser avatar={myUser.avatar} bio={myUser.bio} name={myUser.name} />
-    </Flex>
+      <Header />
+
+      <ProfileUser avatar={userData.avatar} bio={userData.bio} name={userData.name} isLoading />
+
+      <TabsContainer data={dataCard} />
+    </Stack>
   )
 }
