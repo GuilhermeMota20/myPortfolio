@@ -1,7 +1,8 @@
 import { SimpleGrid, useDisclosure } from "@chakra-ui/react";
 import { useState } from 'react';
+import { useDBDev } from "../../../services/hooks/useDBDev";
 import CardProject from "./CardProject";
-import ModalProjects from "./modalPorjects";
+import ModalProjects from "./ModalPorjects";
 
 export interface CardProjectProps {
     id: string;
@@ -12,13 +13,9 @@ export interface CardProjectProps {
     link_demo: string;
 }
 
-interface CardsProjectsProps {
-    cards: CardProjectProps[];
-}
-
-export default function CardProjectList({ cards }: CardsProjectsProps) {
+export default function CardProjectList() {
     const { onOpen, isOpen, onClose } = useDisclosure();
-
+    const { data, error, isLoading } = useDBDev();
     const [currentProjectDetail, setCurrentProjectDetail] = useState<CardProjectProps>();
 
     function handleViewModal(currentProject: CardProjectProps): void {
@@ -32,8 +29,8 @@ export default function CardProjectList({ cards }: CardsProjectsProps) {
                 minChildWidth={240}
                 spacing={9}
             >
-                {cards.map(card => (
-                    <CardProject key={card.id} data={card} viewModal={handleViewModal} />
+                {data?.projects.map(project => (
+                    <CardProject key={project.id} data={project} viewModal={handleViewModal} />
                 ))}
             </SimpleGrid>
 

@@ -19,7 +19,7 @@ export default function CardProject({ viewModal, data }: CardProjectProps) {
     const [isLoading, setIsLoading] = useState(true);
 
     return (
-        <Skeleton isLoaded={isLoading}>
+        // <Skeleton isLoaded={isLoading}>
             <Card maxW={350} boxShadow='md' rounded='lg' cursor='pointer' onClick={() => viewModal(data)}>
                 <CardBody >
                     <Image
@@ -31,6 +31,6 @@ export default function CardProject({ viewModal, data }: CardProjectProps) {
                     />
                 </CardBody>
             </Card>
-        </Skeleton>
+        // </Skeleton>
     )
 }
