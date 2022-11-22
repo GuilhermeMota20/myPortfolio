@@ -1,18 +1,33 @@
-import { Stack, useDisclosure } from "@chakra-ui/react";
-import { useState } from "react";
+import { Stack } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import Header from "../components/Header";
+import Loading from "../components/Loading";
 import ProfileUser from "../components/ProfileUser";
 import TabsContainer from "../components/TabsContainer";
-import CardProject from "../components/TabsContainer/TabPanelProject/CardProject";
-import { CardProjectProps } from "../components/TabsContainer/TabPanelProject/CardProjectList";
-import { useDBDev } from "../services/hooks/useDBDev";
 
 export default function Home() {
+  const [load, setLoad] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoad(false);
+    }, 3000);
+  });
+
+  if (load) {
+    return (
+      <>
+        <Header />
+        <Loading />
+      </>
+    )
+  };
+
   const userData = {
     name: 'Guilherme Mota',
     bio: 'Frontend Developer',
     avatar: 'https://avatars.githubusercontent.com/u/70167159?v=4'
-  }
+  };
 
   return (
     <Stack
@@ -32,11 +47,6 @@ export default function Home() {
       <ProfileUser avatar={userData.avatar} bio={userData.bio} name={userData.name} isLoading />
 
       <TabsContainer />
-      {/* {data?.projects.map(project => {
-        return (
-          <CardProject key={project.id} data={project} viewModal={handleViewModal} />
-        )
-      })} */}
     </Stack>
   )
 }

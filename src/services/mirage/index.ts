@@ -44,7 +44,7 @@ export function makeServer() {
 
         routes() {
             this.namespace = 'api';
-            this.timing = 3000;
+            // this.timing = 400;
 
             this.get('/', function (schema) {
 

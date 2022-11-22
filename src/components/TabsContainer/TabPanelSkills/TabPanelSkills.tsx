@@ -1,7 +1,9 @@
-import { Heading } from "@chakra-ui/react";
+import { Heading, Stack } from "@chakra-ui/react";
 
 export default function TabItemSkills() {
     return (
-        <Heading>Skills</Heading>
+        <Stack>
+            <Heading>Skills</Heading>
+        </Stack>
     )
 }
