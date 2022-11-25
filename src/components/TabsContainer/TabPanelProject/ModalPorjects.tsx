@@ -22,7 +22,7 @@ export default function ModalProjects({ isOpen, onClose, results }: ModalProject
 
                         {results?.data.description.map(description => {
                             return (
-                                <Text>{description.text}</Text>
+                                <Text key={description.text}>{description.text}</Text>
                             )
                         })}
                     </Stack>
