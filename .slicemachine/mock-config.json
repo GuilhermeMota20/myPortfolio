@@ -1,0 +1,14 @@
+{
+  "_cts": {
+    "projects": {
+      "contentbody": {
+        "description": {
+          "config": {
+            "patternType": "PARAGRAPH",
+            "blocks": 1
+          }
+        }
+      }
+    }
+  }
+}

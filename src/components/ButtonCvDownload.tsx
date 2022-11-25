@@ -2,7 +2,7 @@ import { Button, Tooltip, useColorModeValue } from "@chakra-ui/react";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 
 interface ButtonCvDownloadProps {
-    labelTooltip: string;
+    labelTooltip?: string;
     icon: ReactJSXElement;
     archiveDownload?: string;
 }

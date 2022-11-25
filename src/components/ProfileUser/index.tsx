@@ -41,9 +41,9 @@ export default function ProfileUser({ name, avatar, bio, isLoading }: UserProps)
 
         <Skeleton isLoaded={isLoading}>
           <HStack>
-            <ButtonCvDownload icon={<FiDownload />} labelTooltip='Download my curriculo 📄' />
-            <ButtonsSocial icon={<FaGithubAlt />} labelTooltip='Go to GitHub' linkHref='https://github.com/GuilhermeMota20' />
-            <ButtonsSocial icon={<ImLinkedin2 />} labelTooltip='Go to LinkedIn' linkHref='https://www.linkedin.com/in/guilherme-santosmotabernardo/' />
+            <ButtonCvDownload icon={<FiDownload />} />
+            <ButtonsSocial icon={<FaGithubAlt />} linkHref='https://github.com/GuilhermeMota20' />
+            <ButtonsSocial icon={<ImLinkedin2 />} linkHref='https://www.linkedin.com/in/guilherme-santosmotabernardo/' />
           </HStack>
         </Skeleton>
       </Stack>

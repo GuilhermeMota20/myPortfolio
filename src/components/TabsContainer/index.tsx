@@ -1,10 +1,10 @@
 import { Box, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
+import { ProjectsProps } from "../../pages";
 import TabListsComponent from "./TabListComponent";
-import CardProjectList, { CardProjectProps } from "./TabPanelProject/CardProjectList";
+import CardProjectList from "./TabPanelProject/CardProjectList";
 import TabItemSkills from "./TabPanelSkills/TabPanelSkills";
 
-export default function TabsContainer() {
-
+export default function TabsContainer({ projectsPagination }: ProjectsProps) {
     return (
         <Box as="section" w='100%' maxW='760px'>
             <Tabs variant='soft-rounded' colorScheme="red" isFitted >
@@ -12,7 +12,7 @@ export default function TabsContainer() {
 
                 <TabPanels w='100%' pt='2rem'>
                     <TabPanel>
-                        <CardProjectList />
+                        <CardProjectList projectsPagination={projectsPagination} />
                     </TabPanel>
 
                     <TabPanel>

@@ -4,7 +4,7 @@ import Link from "next/link";
 
 interface ButtonsSocialProps {
     linkHref: string;
-    labelTooltip: string;
+    labelTooltip?: string;
     icon: ReactJSXElement;
 }
 

@@ -1,26 +1,19 @@
 import { Card, CardBody } from "@chakra-ui/card";
 import { Image } from "@chakra-ui/react";
-
-interface CardProject {
-    title: string;
-    description: string;
-    image_url: string;
-    link_git: string;
-    link_demo: string;
-}
+import { Project } from "../../../pages";
 
 interface CardProjectProps {
     viewModal: (currentProject: {}) => void;
-    data: CardProject;
+    results: Project;
 }
 
-export default function CardProject({ viewModal, data }: CardProjectProps) {
+export default function CardProject({ viewModal, results }: CardProjectProps) {
     return (
-        <Card maxW={350} boxShadow='md' rounded='lg' cursor='pointer' onClick={() => viewModal(data)}>
+        <Card maxW={350} boxShadow='md' rounded='lg' cursor='pointer' onClick={() => viewModal(results)}>
             <CardBody >
                 <Image
-                    src={data.image_url}
-                    alt={data.title}
+                    src={results.data.banner.url}
+                    alt={results.data.title}
                     borderRadius='lg'
                     objectFit='cover'
                 />
