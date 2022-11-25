@@ -58,7 +58,7 @@ export default function CardProjectList ( { projectsPagination }: ProjectsProps 
             >
                 {projectsPagination.results.map(project => (
                     <Skeleton key={project.uid} isLoaded={isLoad}>
-                        <CardProject results={project} viewModal={handleViewModal} />
+                        <CardProject key={project.uid} results={project} viewModal={handleViewModal} />
                     </Skeleton>
                 ))}
             </SimpleGrid>
