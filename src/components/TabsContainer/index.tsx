@@ -1,8 +1,8 @@
 import { Box, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
 import { ProjectsProps } from "../../pages";
 import TabListsComponent from "./TabListComponent";
+import CardBlog from "./TabPanelBlog/CardBlog";
 import CardProjectList from "./TabPanelProject/CardProjectList";
-import TabItemSkills from "./TabPanelSkills/TabPanelSkills";
 
 export default function TabsContainer({ projectsPagination }: ProjectsProps) {
     return (
@@ -16,7 +16,7 @@ export default function TabsContainer({ projectsPagination }: ProjectsProps) {
                     </TabPanel>
 
                     <TabPanel>
-                        <TabItemSkills />
+                        <CardBlog />
                     </TabPanel>
                 </TabPanels>
             </Tabs>

@@ -27,20 +27,46 @@ export interface Project {
     };
   };
 }
-
 export interface ProjectsPagination {
   next_page: string;
   results: Project[];
 }
-
 export interface ProjectsProps {
   projectsPagination: ProjectsPagination;
 }
 
-export default function Home({ projectsPagination }: ProjectsProps) {
+export interface Profile {
+  uid: string;
+  data: {
+    profile_banner: {
+      url: string;
+    };
+    profile_avatar: {
+      url: string;
+    };
+    profile_name: string;
+    profile_work: string;
+    profile_desntonibilidade: string;
+    profile_git: {
+      url: string;
+    };
+    profile_linkedin: {
+      url: string;
+    };
+  }
+}
+export interface ProfileResult {
+  results: Profile[];
+}
+export interface ProfileProps {
+  resultsProfile: ProfileResult;
+}
+
+export default function Home({ resultsProfile,  projectsPagination}) {
   const [load, setLoad] = useState(true);
 
   console.log(projectsPagination);
+  console.log(resultsProfile);
 
   useEffect(() => {
     setTimeout(() => {
@@ -57,12 +83,6 @@ export default function Home({ projectsPagination }: ProjectsProps) {
     )
   };
 
-  const userData = {
-    name: 'Guilherme Mota',
-    bio: 'Frontend Developer',
-    avatar: 'https://avatars.githubusercontent.com/u/70167159?v=4'
-  };
-
   return (
     <Stack
       as='main'
@@ -77,7 +97,7 @@ export default function Home({ projectsPagination }: ProjectsProps) {
       gap={9}
     >
       <Header />
-      <ProfileUser avatar={userData.avatar} bio={userData.bio} name={userData.name} isLoading />
+      <ProfileUser resultsProfile={resultsProfile} />
       <TabsContainer projectsPagination={projectsPagination} />
     </Stack>
   )
@@ -86,9 +106,36 @@ export default function Home({ projectsPagination }: ProjectsProps) {
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = createClient({});
 
-  const response = await prismic.getByType('projects', { pageSize: 2 });
+  const responseProfile = await prismic.getByType('profile');
+  const responseProject = await prismic.getByType('projects', { pageSize: 4 });
 
-  const projects = response.results.map(project => {
+  const profile = responseProfile.results.map(profile => {
+    return {
+      uid: profile.uid,
+      data: {
+        profile_banner: {
+          url: profile.data.profile_banner.url,
+        },
+        profile_avatar: {
+          url: profile.data.profile_avatar.url,
+        },
+        profile_name: profile.data.profile_name,
+        profile_work: profile.data.profile_work,
+        profile_desntonibilidade: profile.data.profile_desntonibilidade,
+        profile_git: {
+          url: profile.data.profile_git.url,
+        },
+        profile_linkedin: {
+          url: profile.data.profile_linkedin.url,
+        },
+      }
+    }
+  });
+  const resultsProfile = {
+    results: profile,
+  };
+
+  const projects = responseProject.results.map(project => {
     return {
       uid: project.uid,
       data: {
@@ -112,15 +159,15 @@ export const getStaticProps: GetStaticProps = async () => {
       }
     };
   });
-
   const projectsPagination = {
-    next_page: response.next_page,
+    next_page: responseProject.next_page,
     results: projects,
   };
 
   return {
     props: {
-      projectsPagination
+      projectsPagination,
+      resultsProfile,
     }
   };
 };

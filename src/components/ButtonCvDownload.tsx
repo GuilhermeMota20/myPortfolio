@@ -19,6 +19,7 @@ export default function ButtonCvDownload({ labelTooltip, icon }: ButtonCvDownloa
                 bg={colorModeValue}
                 boxShadow='md'
                 variant='solid'
+                disabled
             />
         </Tooltip>
     )

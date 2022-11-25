@@ -20,7 +20,6 @@ export default function CardProjectList ( { projectsPagination }: ProjectsProps 
     function handleViewModal(currentProject: Project): void {
         onOpen();
         setCurrentProjectDetail(currentProject);
-        console.log(currentProject);
     };
 
     // const [nextPage, setNextPage] = useState(projectsPagination?.next_page);
