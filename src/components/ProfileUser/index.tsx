@@ -20,7 +20,7 @@ export default function ProfileUser({ resultsProfile }: ProfileProps) {
   return (
     <Box as="section" mt='-5rem'>
       {resultsProfile.results.map(profile => (
-        <>
+        <Box key={profile.uid}>
           <Skeleton startColor='#FC0238' endColor='#FF3936' height='170px' filter='auto' blur={isLoad ? 0 : '2px'} isLoaded={isLoad}>
             <Banner results={profile} />
           </Skeleton>
@@ -57,7 +57,7 @@ export default function ProfileUser({ resultsProfile }: ProfileProps) {
               </HStack>
             </Skeleton>
           </Stack>
-        </>
+        </Box>
       ))}
     </Box>
   )

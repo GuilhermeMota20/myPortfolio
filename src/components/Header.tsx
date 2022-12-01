@@ -25,12 +25,12 @@ export default function Header() {
       left={0}
       py='1rem'
       px='6'
-      boxShadow='dark-lg'
+      boxShadow='lg'
       zIndex={10}
     >
       <Flex
         w='100%'
-        maxW='760px'
+        maxW='1200px'
         mx='auto'
         alignItems='center'
         justifyContent='space-between'

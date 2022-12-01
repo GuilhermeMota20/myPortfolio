@@ -65,23 +65,20 @@ export interface ProfileProps {
 export default function Home({ resultsProfile,  projectsPagination}) {
   const [load, setLoad] = useState(true);
 
-  console.log(projectsPagination);
-  console.log(resultsProfile);
-
   useEffect(() => {
     setTimeout(() => {
       setLoad(false);
     }, 3000);
   });
 
-  if (load) {
-    return (
-      <>
-        <Header />
-        <Loading />
-      </>
-    )
-  };
+  // if (load) {
+  //   return (
+  //     <>
+  //       <Header />
+  //       <Loading />
+  //     </>
+  //   )
+  // };
 
   return (
     <Stack
@@ -143,11 +140,11 @@ export const getStaticProps: GetStaticProps = async () => {
           url: project.data.banner.url,
         },
         title: project.data.title,
-        description: project.data.description.map(description => {
-          return {
-            text: [...description.text],
-          };
-        }),
+        // description: project.data.description.map(description => {
+        //   return {
+        //     text: [...description.text],
+        //   };
+        // }),
         repo_git: {
           url: project.data.repo_git.url,
           target: project.data.repo_git.target,
