@@ -1,5 +1,5 @@
 import { Box, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
-import { ProjectsProps } from "../../pages";
+import { ProjectsProps } from "../../types";
 import TabListsComponent from "./TabListComponent";
 import CardBlog from "./TabPanelBlog/CardBlog";
 import CardProjectList from "./TabPanelProject/CardProjectList";

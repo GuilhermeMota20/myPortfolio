@@ -1,5 +1,4 @@
-import { Avatar, Badge, Box, Flex, HStack, Skeleton, SkeletonCircle, SkeletonText, Stack, Text } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { Avatar, Badge, Box, Flex, HStack, Stack, Text } from "@chakra-ui/react";
 import { FaGithubAlt } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
 import { ImLinkedin2 } from "react-icons/im";
