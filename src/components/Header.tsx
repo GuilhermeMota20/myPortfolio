@@ -20,12 +20,12 @@ export default function Header() {
       position='fixed'
       bg={colorModeValue}
       w='100%'
-      h='60px'
+      h='70px'
       top={0}
       left={0}
       py='1rem'
       px='6'
-      boxShadow='lg'
+      boxShadow='dark-lg'
       zIndex={10}
     >
       <Flex

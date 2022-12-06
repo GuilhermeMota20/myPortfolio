@@ -1,6 +1,6 @@
 import { Card, CardBody, CardFooter } from "@chakra-ui/card";
 import { Badge, Button, ButtonGroup, Divider, Flex, Heading, Image, SimpleGrid, Stack, Text, useBreakpointValue, useColorModeValue, Wrap, WrapItem } from "@chakra-ui/react";
-import { Project } from "../../../pages";
+import { Project } from "../../../types";
 import ButtonsSocial from "../../ButtonsSocial";
 import { FaGithubAlt, FaPager } from "react-icons/fa";
 import { AiOutlineShoppingCart } from "react-icons/ai";
