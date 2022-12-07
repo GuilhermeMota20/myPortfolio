@@ -37,11 +37,18 @@ export default function Header() {
       >
         <Heading fontSize={isWideVersio ? '1rem' : '1.4rem'} >gmota</Heading>
 
-        <Tooltip label={`Change theme to ${colorMode === 'light' ? 'dark' : 'light'} mode`} placement='right' hasArrow >
+        {!isWideVersio
+          ?
+          <Tooltip label={`Change theme to ${colorMode === 'light' ? 'dark' : 'light'} mode`} placement='right' hasArrow >
+            <Button onClick={toggleColorMode} colorScheme='red' variant='ghost'>
+              <Icon as={colorMode === 'light' ? FaMoon : FaSun} w='4' h='4' />
+            </Button>
+          </Tooltip>
+          :
           <Button onClick={toggleColorMode} colorScheme='red' variant='ghost'>
             <Icon as={colorMode === 'light' ? FaMoon : FaSun} w='4' h='4' />
           </Button>
-        </Tooltip>
+        }
       </Flex>
     </Flex>
   )
