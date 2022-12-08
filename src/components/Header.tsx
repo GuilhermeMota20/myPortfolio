@@ -18,14 +18,14 @@ export default function Header() {
 
   return (
     <>
-      {isVisible && (
+      {isVisible && !isWideVersio && (
         <Alert
           position='fixed'
           top={0}
           left={0}
-          p='1rem'
+          py='.6rem'
           w='100vw'
-          h='40px'
+          // h='40px'
           bg='primary.900'
           zIndex={10}
         >
@@ -44,8 +44,8 @@ export default function Header() {
           <CloseButton
             alignSelf='flex-start'
             position='relative'
-            right={5}
-            top={-3}
+            right='16px'
+            top={0}
             onClick={onClose}
           />
         </Alert>
@@ -58,7 +58,7 @@ export default function Header() {
         bg={colorModeValue}
         w='100%'
         h='70px'
-        top={isVisible ? '30px' : '0'}
+        top={isVisible && !isWideVersio ? '43px' : '0'}
         left={0}
         py='1rem'
         px='6'
