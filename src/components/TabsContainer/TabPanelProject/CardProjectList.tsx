@@ -53,7 +53,7 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
         <Stack spacing='2rem'>
             <SimpleGrid
                 minChildWidth={240}
-                spacing={9}
+                spacing={20}
             >
                 {projects.map(project => (
                     <Skeleton key={project.uid} isLoaded={isLoad}>
