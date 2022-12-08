@@ -1,8 +1,5 @@
-import { Alert, AlertDescription, Button, CloseButton, Flex, Heading, Icon, Text, Tooltip, useBreakpointValue, useColorMode, useColorModeValue, useDisclosure } from "@chakra-ui/react";
-import { MdOutlineWbSunny } from "react-icons/md";
-import { HiMoon } from "react-icons/hi";
-import { generateKey } from "crypto";
-import { FaMoon, FaSun } from "react-icons/fa"
+import { Alert, AlertDescription, Button, CloseButton, Flex, Heading, Icon, Tooltip, useBreakpointValue, useColorMode, useColorModeValue, useDisclosure } from "@chakra-ui/react";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 
 export default function Header() {
@@ -17,43 +14,41 @@ export default function Header() {
   const {
     isOpen: isVisible,
     onClose,
-    onOpen,
   } = useDisclosure({ defaultIsOpen: true })
-
 
   return (
     <>
       {isVisible && (
-          <Alert
-            position='fixed'
-            top={0}
-            left={0}
-            p='1rem'
-            w='100vw'
-            h='40px'
-            bg='primary.900'
-            zIndex={10}
+        <Alert
+          position='fixed'
+          top={0}
+          left={0}
+          p='1rem'
+          w='100vw'
+          h='40px'
+          bg='primary.900'
+          zIndex={10}
+        >
+          <Flex
+            w='100%'
+            maxW='1200px'
+            mx='auto'
+            alignItems='center'
+            justifyContent='center'
           >
-            <Flex
-              w='100%'
-              maxW='1200px'
-              mx='auto'
-              alignItems='center'
-              justifyContent='center'
-            >
-              <AlertDescription>
-                This site is under maintenance, soon we will have more features 😊
-              </AlertDescription>
-            </Flex>
+            <AlertDescription>
+              This site is under maintenance, soon we will have more features 😊
+            </AlertDescription>
+          </Flex>
 
-            <CloseButton
-              alignSelf='flex-start'
-              position='relative'
-              right={5}
-              top={-3}
-              onClick={onClose}
-            />
-          </Alert>
+          <CloseButton
+            alignSelf='flex-start'
+            position='relative'
+            right={5}
+            top={-3}
+            onClick={onClose}
+          />
+        </Alert>
       )}
 
       <Flex
@@ -70,8 +65,6 @@ export default function Header() {
         boxShadow='dark-lg'
         zIndex={10}
       >
-
-
         <Flex
           w='100%'
           maxW='1200px'
