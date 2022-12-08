@@ -28,6 +28,9 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
         setCurrentPage(projectResults.page);
 
         const newProjects = projectResults.results.map(project => {
+
+            const buyProject = String(project.data.buy_project.url); 
+
             return {
                 uid: project.uid,
                 data: {
@@ -42,6 +45,9 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
                     demo_site: {
                         url: project.data.demo_site.url,
                         target: project.data.demo_site.target,
+                    },
+                    buy_project: {
+                        url: buyProject,
                     },
                 }
             }

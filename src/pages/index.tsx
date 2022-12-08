@@ -16,6 +16,8 @@ export default function Home({ resultsProfile, projectsPagination }) {
     }, 7000);
   });
 
+  console.log(projectsPagination);
+
   return (
     <>
       {load && <PreLoader />}
@@ -44,13 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const prismic = createClient({});
 
   const responseProfile = await prismic.getByType('profile');
-  const responseProject = await prismic.getByType('projects', {
-    orderings: {
-      field: 'document.first_publication_date',
-      direction: 'desc'
-    },
-    pageSize: 3,
-  });
+  const responseProject = await prismic.getByType('projects', {pageSize: 3});
 
   const profile = responseProfile.results.map(profile => {
     return {
@@ -79,6 +75,9 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 
   const projects = responseProject.results.map(project => {
+
+    const buyProject = String(project.data.buy_project.url); 
+
     return {
       uid: project.uid,
       data: {
@@ -92,8 +91,11 @@ export const getStaticProps: GetStaticProps = async () => {
         demo_site: {
           url: project.data.demo_site.url,
         },
+        buy_project: {
+          url: buyProject,
+        },
       }
-    };
+    }
   });
   const projectsPagination = {
     next_page: responseProject.next_page,

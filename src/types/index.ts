@@ -11,6 +11,9 @@ export interface Project {
         demo_site: {
             url: string;
         };
+        buy_project: {
+            url: unknown;
+        };
     };
 }
 export interface ProjectsPagination {

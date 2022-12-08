@@ -1,9 +1,9 @@
 import { Card, CardBody, CardFooter } from "@chakra-ui/card";
-import { Badge, Button, ButtonGroup, Divider, Flex, Heading, Image, SimpleGrid, Stack, Text, useBreakpointValue, useColorModeValue, Wrap, WrapItem } from "@chakra-ui/react";
+import { Badge, Button, Divider, Flex, Heading, Image, Stack, useColorModeValue, Wrap, WrapItem } from "@chakra-ui/react";
+import Link from "next/link";
+import { FaGithubAlt, FaPager } from "react-icons/fa";
 import { Project } from "../../../types";
 import ButtonsSocial from "../../ButtonsSocial";
-import { FaGithubAlt, FaPager } from "react-icons/fa";
-import { AiOutlineShoppingCart } from "react-icons/ai";
 
 interface CardProjectProps {
     results: Project;
@@ -12,6 +12,8 @@ interface CardProjectProps {
 export default function CardProject({ results }: CardProjectProps) {
     const colorModeValue = useColorModeValue('gray.50', 'gray.700');
     const colorModeValueIcon = useColorModeValue('gray.50', 'gray.800');
+
+    const hasLinkBuyProject = results.data.buy_project.url;
 
     return (
         <Card maxW={460} maxH={560} h='100%' boxShadow='lg' rounded='lg' bg={colorModeValue} mx='auto'>
@@ -53,7 +55,15 @@ export default function CardProject({ results }: CardProjectProps) {
                             <ButtonsSocial icon={<FaPager />} linkHref={results.data.demo_site.url} color="teal" bg={colorModeValueIcon} />
                         </Flex>
 
-                        <Button variant='solid' colorScheme='teal' disabled>Buy now</Button>
+                        <Link href={hasLinkBuyProject !== 'undefined' ? hasLinkBuyProject : ''}>
+                            {hasLinkBuyProject === 'undefined'
+                                ? (
+                                    <Button variant='solid' colorScheme='teal' disabled>Buy now</Button>
+                                ) : (
+                                    <Button variant='solid' colorScheme='teal'>Buy now</Button>
+                                )
+                            }
+                        </Link>
                     </Flex>
                 </Stack>
             </CardFooter>
