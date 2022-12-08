@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps = async () => {
       field: 'document.first_publication_date',
       direction: 'desc'
     },
-    pageSize: 2,
+    pageSize: 3,
   });
 
   const profile = responseProfile.results.map(profile => {

@@ -13,11 +13,6 @@ export default function CardProject({ results }: CardProjectProps) {
     const colorModeValue = useColorModeValue('gray.50', 'gray.700');
     const colorModeValueIcon = useColorModeValue('gray.50', 'gray.800');
 
-    const isWideVersion = useBreakpointValue({
-        base: false,
-        lg: true,
-    });
-
     return (
         <Card maxW={460} maxH={560} h='100%' boxShadow='lg' rounded='lg' bg={colorModeValue} mx='auto'>
             <CardBody h='100%' display='flex' flexDirection='column' justifyContent='space-between'>
@@ -53,18 +48,13 @@ export default function CardProject({ results }: CardProjectProps) {
             <CardFooter p='1rem'>
                 <Stack spacing='1rem' w='100%'>
                     <Flex w='100%' display='flex' justifyContent='space-between' gap='1rem'>
-                        <ButtonsSocial icon={<FaGithubAlt />} linkHref={results.data.repo_git.url} color="teal" bg={colorModeValueIcon} />
-                        <ButtonsSocial icon={<FaPager />} linkHref={results.data.demo_site.url} color="teal" bg={colorModeValueIcon} />
-                        <ButtonsSocial icon={<AiOutlineShoppingCart />} color="teal" />
+                        <Flex gap='1rem'>
+                            <ButtonsSocial icon={<FaGithubAlt />} linkHref={results.data.repo_git.url} color="teal" bg={colorModeValueIcon} />
+                            <ButtonsSocial icon={<FaPager />} linkHref={results.data.demo_site.url} color="teal" bg={colorModeValueIcon} />
+                        </Flex>
 
-                        {isWideVersion
-                            ?
-                            <Button variant='solid' colorScheme='teal' disabled>Buy now</Button>
-                            : null
-                        }
+                        <Button variant='solid' colorScheme='teal' disabled>Buy now</Button>
                     </Flex>
-
-                    {!isWideVersion && <Button variant='solid' colorScheme='teal' disabled>Buy now</Button>}
                 </Stack>
             </CardFooter>
         </Card>
