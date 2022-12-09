@@ -25,7 +25,8 @@ export default function Header() {
           left={0}
           py='.6rem'
           w='100vw'
-          // h='40px'
+          color='gray.800' 
+          fontWeight='bold'
           bg='primary.900'
           zIndex={10}
         >
