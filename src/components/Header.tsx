@@ -1,4 +1,4 @@
-import { Alert, AlertDescription, Button, CloseButton, Flex, Heading, Icon, Tooltip, useBreakpointValue, useColorMode, useColorModeValue, useDisclosure } from "@chakra-ui/react";
+import { Alert, AlertDescription, Button, CloseButton, Flex, Heading, Icon, Text, Tooltip, useBreakpointValue, useColorMode, useColorModeValue, useDisclosure } from "@chakra-ui/react";
 import { FaMoon, FaSun } from "react-icons/fa";
 
 
@@ -72,7 +72,7 @@ export default function Header() {
           alignItems='center'
           justifyContent='space-between'
         >
-          <Heading fontSize={isWideVersio ? '1rem' : '1.4rem'} >gmota</Heading>
+          <Heading display='flex' fontSize={isWideVersio ? '1.6rem' : '2rem'} >g<Text color='primary.900'>.</Text></Heading>
 
           {!isWideVersio
             ?
