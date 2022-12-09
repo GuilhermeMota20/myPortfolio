@@ -1,8 +1,13 @@
-import { Button, Flex, Heading, Stack, Text } from "@chakra-ui/react"
+import { Button, Flex, Heading, Stack, Text, useBreakpointValue } from "@chakra-ui/react"
 import Link from "next/link"
 import Header from "../components/Header"
 
 function PageError() {
+    const isWideVersio = useBreakpointValue({
+        base: true,
+        lg: false,
+      });
+
     return (
         <Stack
             as='main'
@@ -17,9 +22,9 @@ function PageError() {
         >
             <Header />
 
-            <Flex h='100vh' alignItems='center' justifyContent='center'>
+            <Flex minWidth='220px' h='100vh' alignItems='center' justifyContent='center'>
                 <Stack textAlign='center' spacing='1rem'>
-                    <Heading fontSize='9rem' letterSpacing='1.4rem'>404</Heading>
+                    <Heading fontSize={isWideVersio ? '6rem' : '9rem'} letterSpacing='1.4rem'>404</Heading>
 
                     <Stack spacing='2rem'>
                         <Text>Whoooops... this page is not exist.</Text>

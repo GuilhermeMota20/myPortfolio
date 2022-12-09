@@ -16,8 +16,6 @@ export default function Home({ resultsProfile, projectsPagination }) {
     }, 7000);
   });
 
-  console.log(projectsPagination);
-
   return (
     <>
       {load && <PreLoader />}
