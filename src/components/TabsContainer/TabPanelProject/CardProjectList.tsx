@@ -38,6 +38,11 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
                         url: project.data.banner.url,
                     },
                     title: project.data.title,
+                    skills: [
+                        {
+                            name_skills: project.data.name_skills,
+                        }
+                    ],
                     repo_git: {
                         url: project.data.repo_git.url,
                         target: project.data.repo_git.target,

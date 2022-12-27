@@ -16,7 +16,7 @@ export default function CardProject({ results }: CardProjectProps) {
     const hasLinkBuyProject = results.data.buy_project.url;
 
     return (
-        <Card maxW={460} maxH={560} h='100%' boxShadow='lg' rounded='lg' bg={colorModeValue} mx='auto'>
+        <Card maxW={460} maxH={560} h='100%' boxShadow='lg' rounded='lg' bg={colorModeValue} mx='auto' key={results.uid}>
             <CardBody h='100%' display='flex' flexDirection='column' justifyContent='space-between'>
                 <Image
                     src={results.data.banner.url}
@@ -31,18 +31,13 @@ export default function CardProject({ results }: CardProjectProps) {
                     <Heading letterSpacing='.6rem' fontWeight='normal' fontSize='1.2rem'>{results.data.title.toUpperCase()}</Heading>
 
                     <Wrap>
-                        <WrapItem>
-                            <Badge colorScheme='green'>Nextjs</Badge>
-                        </WrapItem>
-                        <WrapItem>
-                            <Badge colorScheme='green'>Reactjs</Badge>
-                        </WrapItem>
-                        <WrapItem>
-                            <Badge colorScheme='green'>TypeScript</Badge>
-                        </WrapItem>
-                        <WrapItem>
-                            <Badge colorScheme='green'>chakraui</Badge>
-                        </WrapItem>
+                        {results.data.skills.map(skill => {
+                            return (
+                                <WrapItem key={skill.name_skills}>
+                                    <Badge colorScheme='green'>{skill.name_skills}</Badge>
+                                </WrapItem>
+                            )
+                        })}
                     </Wrap>
                 </Stack>
             </CardBody>

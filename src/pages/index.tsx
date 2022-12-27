@@ -83,6 +83,11 @@ export const getStaticProps: GetStaticProps = async () => {
           url: project.data.banner.url,
         },
         title: project.data.title,
+        skills: project.data.skills.map((skill)=> {
+          return {
+            name_skills: skill.name_skills,
+          };
+        }),
         repo_git: {
           url: project.data.repo_git.url,
         },

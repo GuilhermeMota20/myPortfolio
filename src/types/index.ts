@@ -5,6 +5,9 @@ export interface Project {
             url: string;
         };
         title: string;
+        skills : {
+            name_skills: string;
+        }[];
         repo_git: {
             url: string;
         };
