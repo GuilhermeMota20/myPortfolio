@@ -39,12 +39,18 @@ export interface Profile {
         profile_name: string;
         profile_work: string;
         profile_desntonibilidade: string;
+        profile_download: {
+            url: string;
+        }
         profile_git: {
             url: string;
         };
         profile_linkedin: {
             url: string;
         };
+        profile_instagram: {
+            url: string;
+        }
     }
 }
 export interface ProfileResult {

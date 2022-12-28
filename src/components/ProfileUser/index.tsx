@@ -21,8 +21,9 @@ export default function ProfileUser({ resultsProfile }: ProfileProps) {
               <Avatar
                 name={profile.data.profile_name}
                 src={profile.data.profile_avatar.url}
-                size='xl'
-                boxShadow='xl' />
+                size='2xl'
+                boxShadow='xl' 
+              />{' '}
 
               <Flex direction='column' alignItems='center'>
                 <Text>{profile.data.profile_name}</Text>
@@ -36,10 +37,10 @@ export default function ProfileUser({ resultsProfile }: ProfileProps) {
             </Flex>
 
             <HStack>
-              <ButtonCvDownload icon={<FiDownload />} />
+              <ButtonCvDownload icon={<FiDownload />} archiveDownload={profile.data.profile_download.url} />
               <ButtonsSocial icon={<FaGithubAlt />} linkHref={profile.data.profile_git.url} />
               <ButtonsSocial icon={<ImLinkedin2 />} linkHref={profile.data.profile_linkedin.url} />
-              <ButtonsSocial icon={<SiInstagram />} linkHref={profile.data.profile_linkedin.url} />
+              <ButtonsSocial icon={<SiInstagram />} linkHref={profile.data.profile_instagram.url} />
             </HStack>
           </Stack>
         </Box>

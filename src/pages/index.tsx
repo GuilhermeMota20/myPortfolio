@@ -59,11 +59,17 @@ export const getStaticProps: GetStaticProps = async () => {
         profile_name: profile.data.profile_name,
         profile_work: profile.data.profile_work,
         profile_desntonibilidade: profile.data.profile_desntonibilidade,
+        profile_download: {
+          url: profile.data.profile_download.url,
+        },
         profile_git: {
           url: profile.data.profile_git.url,
         },
         profile_linkedin: {
           url: profile.data.profile_linkedin.url,
+        },
+        profile_instagram: {
+          url: profile.data.profile_instagram.url,
         },
       }
     }
