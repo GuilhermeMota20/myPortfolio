@@ -2,6 +2,7 @@ import { Avatar, Badge, Box, Flex, HStack, Stack, Text } from "@chakra-ui/react"
 import { FaGithubAlt } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
 import { ImLinkedin2 } from "react-icons/im";
+import { SiInstagram } from "react-icons/si";
 import { ProfileProps } from "../../types";
 import ButtonCvDownload from "../ButtonCvDownload";
 import ButtonsSocial from "../ButtonsSocial";
@@ -38,6 +39,7 @@ export default function ProfileUser({ resultsProfile }: ProfileProps) {
               <ButtonCvDownload icon={<FiDownload />} />
               <ButtonsSocial icon={<FaGithubAlt />} linkHref={profile.data.profile_git.url} />
               <ButtonsSocial icon={<ImLinkedin2 />} linkHref={profile.data.profile_linkedin.url} />
+              <ButtonsSocial icon={<SiInstagram />} linkHref={profile.data.profile_linkedin.url} />
             </HStack>
           </Stack>
         </Box>
