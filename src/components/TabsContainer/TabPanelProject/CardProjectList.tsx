@@ -1,4 +1,4 @@
-import { Box, Button, CloseButton, Input, SimpleGrid, Skeleton, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, CloseButton, HStack, Input, SimpleGrid, Skeleton, Stack, Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 import { useEffect, useState } from 'react';
 import { Project, ProjectsProps } from "../../../types";
 import CardProject from "./CardProject";
@@ -10,6 +10,10 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
     const [currentPage, setCurrentPage] = useState(1);
     const [isLoad, setIsLoad] = useState(false);
     const colorModeValue = useColorModeValue('gray.50', 'gray.700');
+    const isWideVersio = useBreakpointValue({
+        base: true,
+        lg: false,
+    });
 
     useEffect(() => {
         setTimeout(() => {
@@ -71,31 +75,43 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
             : search;
     }
 
-    console.log(filteredProjects)
-
     return (
         <Stack spacing='2rem'>
-            <Box position='relative' maxW='40%'>
+            <HStack spacing='1rem' w='100%'>
+                <Box position='relative' w={isWideVersio ? '100%' : '40%'} maxW={isWideVersio ? '100%' : '40%'}>
+                    <Input
+                        variant='filled'
+                        placeholder='Search by a project name'
+                        bgColor={colorModeValue}
+                        _focus={{ borderColor: colorModeValue }}
+                        onChange={e => setSearch(e.target.value)}
+                        value={search}
+                        boxShadow='lg'
+                    />
+
+                    {search.length > 0 && (
+                        <CloseButton
+                            alignSelf='flex-start'
+                            position='absolute'
+                            right='6px'
+                            top={1}
+                            onClick={clearSearchInput}
+                        />
+                    )}
+                </Box>
+
                 <Input
                     variant='filled'
-                    placeholder='Search by a project name'
-                    
+                    placeholder="Select Date and Time"
+                    size="md"
+                    w='20%'
                     bgColor={colorModeValue}
                     _focus={{ borderColor: colorModeValue }}
-                    onChange={e => setSearch(e.target.value)}
-                    value={search}
+                    boxShadow='lg'
+                    type="datetime-local"
+                    disabled
                 />
-
-                {search.length > 0 && (
-                    <CloseButton
-                        alignSelf='flex-start'
-                        position='absolute'
-                        right='6px'
-                        top={1}
-                        onClick={clearSearchInput}
-                    />
-                )}
-            </Box>
+            </HStack>
 
             <SimpleGrid
                 minChildWidth={240}
@@ -120,7 +136,7 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
                 }
             </SimpleGrid>
 
-            {filteredProjects.length == 0 && search.length > 0 && (<Text textAlign='center'>Oppss...</Text>)}
+            {filteredProjects.length == 0 && search.length > 0 && (<Text textAlign='center'>Oppss... nothing was found</Text>)}
 
             {nextPage && (
                 <Box textAlign='center'>

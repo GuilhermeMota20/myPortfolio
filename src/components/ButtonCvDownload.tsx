@@ -21,7 +21,8 @@ export default function ButtonCvDownload({ labelTooltip, icon, archiveDownload }
                     bg={colorModeValue}
                     boxShadow='md'
                     variant='solid'
-                    disabled={!archiveDownload && true}
+                    // disabled={!archiveDownload && true}
+                    disabled
                 />
             </Tooltip>
         </Link>

@@ -8,7 +8,7 @@ export default function TabListsComponent() {
             <Skeleton isLoaded>
                 <TabList bg={colorModeValue} p='.3rem' rounded='md' boxShadow='md' w='100%' maxW='320px'>
                     <Tab rounded='md'>Projects</Tab>
-                    <Tab rounded='md'>Blog</Tab>
+                    <Tab isDisabled rounded='md'>Blog</Tab>
                 </TabList>
             </Skeleton>
         </Stack>
