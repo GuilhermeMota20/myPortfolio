@@ -10,7 +10,7 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
     const [currentPage, setCurrentPage] = useState(1);
     const [isLoad, setIsLoad] = useState(false);
     const colorModeValue = useColorModeValue('gray.50', 'gray.700');
-    const isWideVersio = useBreakpointValue({
+    const isWideVersion = useBreakpointValue({
         base: true,
         lg: false,
     });
@@ -78,7 +78,7 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
     return (
         <Stack spacing='2rem'>
             <HStack spacing='1rem' w='100%'>
-                <Box position='relative' w={isWideVersio ? '100%' : '40%'} maxW={isWideVersio ? '100%' : '40%'}>
+                <Box position='relative' w={isWideVersion ? '100%' : '40%'} maxW={isWideVersion ? '100%' : '40%'}>
                     <Input
                         variant='filled'
                         placeholder='Search by a project name'
@@ -99,18 +99,6 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
                         />
                     )}
                 </Box>
-
-                <Input
-                    variant='filled'
-                    placeholder="Select Date and Time"
-                    size="md"
-                    w='20%'
-                    bgColor={colorModeValue}
-                    _focus={{ borderColor: colorModeValue }}
-                    boxShadow='lg'
-                    type="datetime-local"
-                    disabled
-                />
             </HStack>
 
             <SimpleGrid
