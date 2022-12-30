@@ -1,5 +1,6 @@
-import { Box, Button, CloseButton, HStack, Input, SimpleGrid, Skeleton, Stack, Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, CloseButton, HStack, Icon, Input, SimpleGrid, Skeleton, Stack, Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
 import { useEffect, useState } from 'react';
+import { BsSearch } from "react-icons/bs";
 import { Project, ProjectsProps } from "../../../types";
 import CardProject from "./CardProject";
 
@@ -75,6 +76,9 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
             : search;
     }
 
+    console.log(search)
+    console.log(projects)
+
     return (
         <Stack spacing='2rem'>
             <HStack spacing='1rem' w='100%'>
@@ -88,6 +92,15 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
                         value={search}
                         boxShadow='lg'
                     />
+
+                    {search.length <= 0 && (
+                        <Icon
+                            as={BsSearch}
+                            position='absolute'
+                            right='12px'
+                            top='12px'
+                        />
+                    )}
 
                     {search.length > 0 && (
                         <CloseButton
