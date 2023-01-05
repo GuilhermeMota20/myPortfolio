@@ -7,6 +7,7 @@ import { ProfileProps } from "../../types";
 import ButtonCvDownload from "../ButtonCvDownload";
 import ButtonsSocial from "../ButtonsSocial";
 import Banner from "./Banner";
+import style from './style.module.scss';
 
 export default function ProfileUser({ resultsProfile }: ProfileProps) {
   return (
@@ -19,6 +20,7 @@ export default function ProfileUser({ resultsProfile }: ProfileProps) {
 
             <Flex key={profile.uid} mt='-1.8rem' direction='column' alignItems='center' gap='4'>
               <Avatar
+              className={style.avatar}
                 name={profile.data.profile_name}
                 src={profile.data.profile_avatar.url}
                 size='2xl'

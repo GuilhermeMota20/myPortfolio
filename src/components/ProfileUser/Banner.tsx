@@ -7,7 +7,7 @@ interface BannerProps {
 
 export default function Banner({ results }: BannerProps ) {
     return (
-        <Box w='100vw' h='170px' bg='gray.500'>
+        <Box w='100vw' h='170px'>
             <Image
                 width='100vw'
                 height='200px'
