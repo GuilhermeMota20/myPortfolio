@@ -8,6 +8,7 @@ export default class Document extends NextDocument {
             <Html>
                 <Head>
                     <link rel="shortcut icon" href="/favicon_gm.ico" type="image/x-icon" />
+                    <title>Bem vindo | gmota</title>
                 </Head>
                 <body>
                     <ColorModeScript initialColorMode={theme.config.initialColorMode} />

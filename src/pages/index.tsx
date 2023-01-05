@@ -80,7 +80,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   const projects = responseProject.results.map(project => {
 
-    const buyProject = String(project.data.buy_project.url); 
+    const buyProject = String(project.data.buy_project.url);
 
     return {
       uid: project.uid,
@@ -89,7 +89,7 @@ export const getStaticProps: GetStaticProps = async () => {
           url: project.data.banner.url,
         },
         title: project.data.title,
-        skills: project.data.skills.map((skill)=> {
+        skills: project.data.skills.map((skill) => {
           return {
             name_skills: skill.name_skills,
           };
