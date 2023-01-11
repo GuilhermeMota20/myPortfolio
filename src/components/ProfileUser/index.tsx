@@ -20,11 +20,11 @@ export default function ProfileUser({ resultsProfile }: ProfileProps) {
 
             <Flex key={profile.uid} mt='-1.8rem' direction='column' alignItems='center' gap='4'>
               <Avatar
-              className={style.avatar}
+                className={style.avatar}
                 name={profile.data.profile_name}
                 src={profile.data.profile_avatar.url}
                 size='2xl'
-                boxShadow='xl' 
+                boxShadow='xl'
               />{' '}
 
               <Flex direction='column' alignItems='center'>

@@ -5,7 +5,7 @@ interface BannerProps {
     results: Profile;
 }
 
-export default function Banner({ results }: BannerProps ) {
+export default function Banner({ results }: BannerProps) {
     return (
         <Box w='100vw' h='170px'>
             <Image

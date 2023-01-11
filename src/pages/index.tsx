@@ -7,7 +7,6 @@ import ProfileUser from "../components/ProfileUser";
 import TabsContainer from "../components/TabsContainer";
 import { getProfile } from "../services/hooks/useProfile";
 import { getProjects } from "../services/hooks/useProject";
-import { createClient } from "../services/prismicio";
 
 export default function Home({ resultsProfile, projectsPagination }) {
   const [load, setLoad] = useState(true);
@@ -42,10 +41,10 @@ export default function Home({ resultsProfile, projectsPagination }) {
   )
 }
 
-export const getStaticProps: GetStaticProps = async ()=> {
+export const getStaticProps: GetStaticProps = async () => {
   const { resultsProfile } = await getProfile();
   const { projectsPagination } = await getProjects();
-  
+
   return {
     props: {
       resultsProfile,

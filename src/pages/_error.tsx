@@ -1,6 +1,6 @@
-import { Button, Flex, Heading, Stack, Text, useBreakpointValue } from "@chakra-ui/react"
-import Link from "next/link"
-import Header from "../components/Header"
+import { Button, Flex, Heading, Stack, Text, useBreakpointValue } from "@chakra-ui/react";
+import Link from "next/link";
+import Header from "../components/Header";
 
 function PageError() {
     const isWideVersio = useBreakpointValue({

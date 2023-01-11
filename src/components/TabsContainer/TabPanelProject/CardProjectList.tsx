@@ -76,9 +76,6 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
             : search;
     }
 
-    console.log(search)
-    console.log(projects)
-
     return (
         <Stack spacing='2rem'>
             <HStack spacing='1rem' w='100%'>

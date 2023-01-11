@@ -1,4 +1,4 @@
-import { Flex, Heading, Stack, Text } from "@chakra-ui/react";
+import { Flex, Stack, Text } from "@chakra-ui/react";
 
 export default function CardBlog() {
     return (
