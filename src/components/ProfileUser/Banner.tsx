@@ -1,4 +1,4 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Image, useBreakpointValue } from "@chakra-ui/react";
 import { Profile } from "../../types";
 
 interface BannerProps {
@@ -6,14 +6,30 @@ interface BannerProps {
 }
 
 export default function Banner({ results }: BannerProps) {
+
+    const isWideVersio = useBreakpointValue({
+        base: true,
+        lg: false,
+      });
+
+    const hasBanner = results.data.profile_banner?.url;
+
     return (
-        <Box w='100vw' h='170px'>
-            <Image
-                width='100vw'
-                height='200px'
-                objectFit='cover'
-                src={results.data.profile_banner.url}
-            />
-        </Box>
+        <>
+            {hasBanner === 'undefined'
+                ? (
+                    <Box w='100vw' h={isWideVersio ? '120px' : '170px'} />
+                ) : (
+                    <Box w='100vw' h={isWideVersio ? '120px' : '170px'}>
+                        <Image
+                            width='100vw'
+                            height='200px'
+                            objectFit='cover'
+                            src={hasBanner}
+                        />
+                    </Box >
+                )
+            }
+        </>
     )
 }

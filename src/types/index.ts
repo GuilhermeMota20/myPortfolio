@@ -14,8 +14,8 @@ export interface Project {
         demo_site: {
             url: string;
         };
-        buy_project: {
-            url: unknown;
+        buy_project?: {
+            url: string | undefined;
         };
     };
 }
@@ -30,8 +30,8 @@ export interface ProjectsProps {
 export interface Profile {
     uid: string;
     data: {
-        profile_banner: {
-            url: string;
+        profile_banner?: {
+            url: string | undefined;
         };
         profile_avatar: {
             url: string;

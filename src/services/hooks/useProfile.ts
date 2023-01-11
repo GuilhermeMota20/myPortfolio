@@ -6,11 +6,13 @@ export async function getProfile() {
     const responseProfile = await prismic.getByType('profile');
 
     const resultsProfile = responseProfile.results.map(profile => {
+        const imgBanner = String(profile.data.profile_banner.url);
+
         return {
             uid: profile.uid,
             data: {
                 profile_banner: {
-                    url: profile.data.profile_banner.url,
+                    url: imgBanner,
                 },
                 profile_avatar: {
                     url: profile.data.profile_avatar.url,
