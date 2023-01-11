@@ -1,7 +1,8 @@
-import { Box, Button, CloseButton, HStack, Icon, Input, SimpleGrid, Skeleton, Stack, Text, useBreakpointValue, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, CloseButton, HStack, Icon, Input, SimpleGrid, Skeleton, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { useEffect, useState } from 'react';
 import { BsSearch } from "react-icons/bs";
 import { Project, ProjectsProps } from "../../../types";
+import { WideVersion } from "../../Utilities/isWideVersion";
 import CardProject from "./CardProject";
 
 export default function CardProjectList({ projectsPagination }: ProjectsProps) {
@@ -11,10 +12,7 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
     const [currentPage, setCurrentPage] = useState(1);
     const [isLoad, setIsLoad] = useState(false);
     const colorModeValue = useColorModeValue('gray.50', 'gray.700');
-    const isWideVersion = useBreakpointValue({
-        base: true,
-        lg: false,
-    });
+    const isWideVersion = WideVersion();
 
     useEffect(() => {
         setTimeout(() => {

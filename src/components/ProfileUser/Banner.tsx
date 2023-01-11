@@ -1,5 +1,6 @@
 import { Box, Image, useBreakpointValue } from "@chakra-ui/react";
 import { Profile } from "../../types";
+import { WideVersion } from "../Utilities/isWideVersion";
 
 interface BannerProps {
     results: Profile;
@@ -7,10 +8,7 @@ interface BannerProps {
 
 export default function Banner({ results }: BannerProps) {
 
-    const isWideVersio = useBreakpointValue({
-        base: true,
-        lg: false,
-      });
+    const isWideVersio = WideVersion();
 
     const hasBanner = results.data.profile_banner?.url;
 
