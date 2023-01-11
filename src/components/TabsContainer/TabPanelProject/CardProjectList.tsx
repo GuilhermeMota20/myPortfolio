@@ -88,6 +88,7 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
                         onChange={e => setSearch(e.target.value)}
                         value={search}
                         boxShadow='lg'
+                        paddingRight={10}
                     />
 
                     {search.length <= 0 && (
