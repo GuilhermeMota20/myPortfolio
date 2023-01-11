@@ -53,9 +53,6 @@ export interface Profile {
         }
     }
 }
-export interface ProfileResult {
-    results: Profile[];
-}
 export interface ProfileProps {
-    resultsProfile: ProfileResult;
+    resultsProfile: Profile[];
 }

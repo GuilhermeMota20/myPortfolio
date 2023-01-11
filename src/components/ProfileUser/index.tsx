@@ -12,7 +12,7 @@ import style from './style.module.scss';
 export default function ProfileUser({ resultsProfile }: ProfileProps) {
   return (
     <Box as="section" mt='-7rem'>
-      {resultsProfile.results.map(profile => (
+      {resultsProfile.map(profile => (
         <Box key={profile.uid}>
           <Banner results={profile} />
 
