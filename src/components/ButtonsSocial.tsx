@@ -1,17 +1,18 @@
-import { Button, Tooltip, useColorModeValue } from "@chakra-ui/react";
+import { Button, Tooltip } from "@chakra-ui/react";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import Link from "next/link";
+import { ColorModeValue } from "./Utilities/ColorModeValue";
 
 interface ButtonsSocialProps {
     linkHref?: string;
     labelTooltip?: string;
     icon: ReactJSXElement;
     color?: string;
-    bg?:string;
+    bg?: string;
 }
 
 export default function ButtonsSocial({ linkHref, labelTooltip, icon, color, bg }: ButtonsSocialProps) {
-    const colorModeValue = useColorModeValue('gray.50', 'gray.700');
+    const { isColorMode } = ColorModeValue();
 
     return (
         <Link href={linkHref ? linkHref : ''}>
@@ -23,7 +24,7 @@ export default function ButtonsSocial({ linkHref, labelTooltip, icon, color, bg 
                             rightIcon={icon}
                             iconSpacing={0}
                             color={!color ? 'primary.900' : color}
-                            bg={!bg ? colorModeValue : bg}
+                            bg={!bg ? isColorMode.firstColorModeValue : bg}
                             boxShadow='md'
                             disabled={!linkHref && true}
                         />
@@ -35,7 +36,7 @@ export default function ButtonsSocial({ linkHref, labelTooltip, icon, color, bg 
                         rightIcon={icon}
                         iconSpacing={0}
                         color={!color ? 'primary.900' : color}
-                        bg={!bg ? colorModeValue : bg}
+                        bg={!bg ? isColorMode.firstColorModeValue : bg}
                         boxShadow='md'
                         disabled={!linkHref && true}
                     />

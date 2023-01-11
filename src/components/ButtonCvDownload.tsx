@@ -1,6 +1,7 @@
-import { Button, Tooltip, useColorModeValue } from "@chakra-ui/react";
+import { Button, Tooltip } from "@chakra-ui/react";
 import { ReactJSXElement } from "@emotion/react/types/jsx-namespace";
 import Link from "next/link";
+import { ColorModeValue } from "./Utilities/ColorModeValue";
 
 interface ButtonCvDownloadProps {
     labelTooltip?: string;
@@ -9,7 +10,7 @@ interface ButtonCvDownloadProps {
 }
 
 export default function ButtonCvDownload({ labelTooltip, icon, archiveDownload }: ButtonCvDownloadProps) {
-    const colorModeValue = useColorModeValue('gray.50', 'gray.700');
+    const { isColorMode } = ColorModeValue();
 
     return (
         <Link href={archiveDownload ? archiveDownload : ''} download={archiveDownload && true}>
@@ -18,10 +19,9 @@ export default function ButtonCvDownload({ labelTooltip, icon, archiveDownload }
                     rightIcon={icon}
                     iconSpacing={0}
                     color='primary.900'
-                    bg={colorModeValue}
+                    bg={isColorMode.firstColorModeValue}
                     boxShadow='md'
                     variant='solid'
-                    // disabled={!archiveDownload && true}
                     disabled
                 />
             </Tooltip>

@@ -1,22 +1,22 @@
 import { Card, CardBody, CardFooter } from "@chakra-ui/card";
-import { Badge, Button, Divider, Flex, Heading, Image, Stack, useColorModeValue, Wrap, WrapItem } from "@chakra-ui/react";
+import { Badge, Button, Divider, Flex, Heading, Image, Stack, Wrap, WrapItem } from "@chakra-ui/react";
 import Link from "next/link";
 import { FaGithubAlt, FaPager } from "react-icons/fa";
 import { Project } from "../../../types";
 import ButtonsSocial from "../../ButtonsSocial";
+import { ColorModeValue } from "../../Utilities/ColorModeValue";
 
 interface CardProjectProps {
     results: Project;
 }
 
 export default function CardProject({ results }: CardProjectProps) {
-    const colorModeValue = useColorModeValue('gray.50', 'gray.700');
-    const colorModeValueIcon = useColorModeValue('gray.50', 'gray.800');
+    const { isColorMode } = ColorModeValue();
 
     const hasLinkBuyProject = results.data.buy_project.url;
 
     return (
-        <Card maxW={460} maxH={560} h='100%' boxShadow='lg' rounded='lg' bg={colorModeValue} mx='auto' key={results.uid}>
+        <Card maxW={460} maxH={560} h='100%' boxShadow='lg' rounded='lg' bg={isColorMode.firstColorModeValue} mx='auto' key={results.uid}>
             <CardBody h='100%' display='flex' flexDirection='column' justifyContent='space-between'>
                 <Image
                     src={results.data.banner.url}
@@ -46,8 +46,8 @@ export default function CardProject({ results }: CardProjectProps) {
                 <Stack spacing='1rem' w='100%'>
                     <Flex w='100%' display='flex' justifyContent='space-between' gap='1rem'>
                         <Flex gap='1rem'>
-                            <ButtonsSocial icon={<FaGithubAlt />} linkHref={results.data.repo_git.url} color="teal" bg={colorModeValueIcon} />
-                            <ButtonsSocial icon={<FaPager />} linkHref={results.data.demo_site.url} color="teal" bg={colorModeValueIcon} />
+                            <ButtonsSocial icon={<FaGithubAlt />} linkHref={results.data.repo_git.url} color="teal" bg={isColorMode.secondColorModeValueSecond} />
+                            <ButtonsSocial icon={<FaPager />} linkHref={results.data.demo_site.url} color="teal" bg={isColorMode.secondColorModeValueSecond} />
                         </Flex>
 
                         <Link href={hasLinkBuyProject !== 'undefined' ? hasLinkBuyProject : ''}>

@@ -1,7 +1,8 @@
-import { Box, Button, CloseButton, HStack, Icon, Input, SimpleGrid, Skeleton, Stack, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Button, CloseButton, HStack, Icon, Input, SimpleGrid, Skeleton, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useState } from 'react';
 import { BsSearch } from "react-icons/bs";
 import { Project, ProjectsProps } from "../../../types";
+import { ColorModeValue } from "../../Utilities/ColorModeValue";
 import { WideVersion } from "../../Utilities/isWideVersion";
 import CardProject from "./CardProject";
 
@@ -11,7 +12,7 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
     const [nextPage, setNextPage] = useState(projectsPagination.next_page);
     const [currentPage, setCurrentPage] = useState(1);
     const [isLoad, setIsLoad] = useState(false);
-    const colorModeValue = useColorModeValue('gray.50', 'gray.700');
+    const { isColorMode } = ColorModeValue();
     const isWideVersion = WideVersion();
 
     useEffect(() => {
@@ -81,8 +82,8 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
                     <Input
                         variant='filled'
                         placeholder='Search by a project name'
-                        bgColor={colorModeValue}
-                        _focus={{ borderColor: colorModeValue }}
+                        bgColor={isColorMode.firstColorModeValue}
+                        _focus={{ borderColor: isColorMode.firstColorModeValue }}
                         onChange={e => setSearch(e.target.value)}
                         value={search}
                         boxShadow='lg'

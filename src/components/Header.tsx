@@ -1,10 +1,11 @@
-import { Alert, AlertDescription, Button, CloseButton, Flex, Heading, Icon, Text, Tooltip, useBreakpointValue, useColorMode, useColorModeValue, useDisclosure } from "@chakra-ui/react";
+import { Alert, AlertDescription, Button, CloseButton, Flex, Heading, Icon, Text, Tooltip, useBreakpointValue, useColorMode, useDisclosure } from "@chakra-ui/react";
 import { FaMoon, FaSun } from "react-icons/fa";
+import { ColorModeValue } from "./Utilities/ColorModeValue";
 
 
 export default function Header() {
   const { toggleColorMode, colorMode, } = useColorMode();
-  const colorModeValue = useColorModeValue('gray.50', 'gray.700');
+  const { isColorMode } = ColorModeValue();
 
   const isWideVersio = useBreakpointValue({
     base: true,
@@ -56,7 +57,7 @@ export default function Header() {
         as='header'
         position='fixed'
         direction='column'
-        bg={colorModeValue}
+        bg={isColorMode.firstColorModeValue}
         w='100%'
         h='70px'
         top={isVisible && !isWideVersio ? '43px' : '0'}

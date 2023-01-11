@@ -1,12 +1,13 @@
-import { Box, Flex, Heading, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text } from "@chakra-ui/react";
+import { ColorModeValue } from "../Utilities/ColorModeValue";
 import styles from './style.module.scss';
 
 export default function PreLoader() {
-    const colorModeValue = useColorModeValue('gray.50', 'gray.800');
+    const { isColorMode } = ColorModeValue();
 
     return (
         <Flex
-            bg={colorModeValue}
+            bg={isColorMode.secondColorModeValueSecond}
             w='100vw'
             h='100vh'
             alignItems='center'
