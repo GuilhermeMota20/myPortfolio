@@ -4,7 +4,7 @@ import { FaMoon, FaSun } from "react-icons/fa";
 
 export default function Header() {
   const { toggleColorMode, colorMode, } = useColorMode();
-  const colorModeValue = useColorModeValue('gray.50', 'gray.800');
+  const colorModeValue = useColorModeValue('gray.50', 'gray.700');
 
   const isWideVersio = useBreakpointValue({
     base: true,
@@ -63,7 +63,7 @@ export default function Header() {
         left={0}
         py='1rem'
         px='6'
-        boxShadow='dark-lg'
+        boxShadow='lg'
         zIndex={10}
       >
         <Flex
