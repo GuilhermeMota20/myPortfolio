@@ -2,7 +2,6 @@ import { Alert, AlertDescription, Button, CloseButton, Flex, Heading, Icon, Text
 import { FaMoon, FaSun } from "react-icons/fa";
 import { ColorModeValue } from "./Utilities/ColorModeValue";
 
-
 export default function Header() {
   const { toggleColorMode, colorMode, } = useColorMode();
   const { isColorMode } = ColorModeValue();

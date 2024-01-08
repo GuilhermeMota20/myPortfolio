@@ -5,11 +5,13 @@ import Header from "../components/Header";
 import PreLoader from "../components/PreLoader";
 import ProfileUser from "../components/ProfileUser";
 import TabsContainer from "../components/TabsContainer";
+import { ColorModeValue } from "../components/Utilities/ColorModeValue";
 import { getProfile } from "../services/hooks/useProfile";
 import { getProjects } from "../services/hooks/useProject";
 
 export default function Home({ resultsProfile, projectsPagination }) {
   const [load, setLoad] = useState(true);
+  const { isColorMode } = ColorModeValue();
 
   useEffect(() => {
     setTimeout(() => {
@@ -32,6 +34,7 @@ export default function Home({ resultsProfile, projectsPagination }) {
         direction='column'
         alignItems='center'
         gap={9}
+        bg={isColorMode.secondColorModeValueSecond}
       >
         <Header />
         <ProfileUser resultsProfile={resultsProfile} />

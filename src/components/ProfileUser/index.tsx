@@ -39,10 +39,25 @@ export default function ProfileUser({ resultsProfile }: ProfileProps) {
             </Flex>
 
             <HStack>
-              <ButtonCvDownload icon={<FiDownload />} archiveDownload={profile.data.profile_download.url} />
-              <ButtonsSocial icon={<FaGithubAlt />} linkHref={profile.data.profile_git.url} />
-              <ButtonsSocial icon={<ImLinkedin2 />} linkHref={profile.data.profile_linkedin.url} />
-              <ButtonsSocial icon={<SiInstagram />} linkHref={profile.data.profile_instagram.url} />
+              <ButtonCvDownload
+                icon={<FiDownload />}
+                archiveDownload={profile.data.profile_download.url}
+              />
+              <ButtonsSocial
+                icon={<FaGithubAlt />}
+                linkHref={profile.data.profile_git.url}
+                labelTooltip="Go to Github"
+                />
+              <ButtonsSocial
+                icon={<ImLinkedin2 />}
+                linkHref={profile.data.profile_linkedin.url}
+                labelTooltip="Go to LinkedIn"
+                />
+              <ButtonsSocial
+                icon={<SiInstagram />}
+                linkHref={profile.data.profile_instagram.url}
+                labelTooltip="Go to Instagram"
+              />
             </HStack>
           </Stack>
         </Box>
