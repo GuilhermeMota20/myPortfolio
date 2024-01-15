@@ -62,7 +62,7 @@ export default function CardProject({ results }: CardProjectProps) {
               />
             </Flex>
 
-            <Link href={hasLinkBuyProject !== 'undefined' ? hasLinkBuyProject : ''}>
+            {/* <Link href={hasLinkBuyProject !== 'undefined' ? hasLinkBuyProject : ''}>
               {hasLinkBuyProject === 'undefined'
                 ? (
                   <Button variant='solid' colorScheme='teal' disabled>Buy now</Button>
@@ -70,7 +70,7 @@ export default function CardProject({ results }: CardProjectProps) {
                   <Button variant='solid' colorScheme='teal'>Buy now</Button>
                 )
               }
-            </Link>
+            </Link> */}
           </Flex>
         </Stack>
 

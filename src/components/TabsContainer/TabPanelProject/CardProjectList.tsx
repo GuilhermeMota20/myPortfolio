@@ -62,7 +62,7 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
   return (
     <Stack spacing='2rem'>
       <SimpleGrid
-        minChildWidth={360}
+        minChildWidth={240}
         spacing={16}
       >
         {projects.map(project => (
