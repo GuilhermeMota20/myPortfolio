@@ -61,10 +61,11 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
 
   return (
     <Stack spacing='2rem'>
-      <Grid templateColumns='repeat(2, 1fr)' gap={16}>
+      <Grid templateColumns={['repeat(1, 1fr)', 'repeat(1, 1fr)', 'repeat(2, 1fr)']} gap={16}>
         {projects.map(project => (
           <Skeleton key={project.uid} isLoaded={isLoad}>
-            <GridItem w='100%'>
+
+            <GridItem w='100%' h='100%'>
               <CardProject key={project.uid} results={project} />
             </GridItem>
           </Skeleton>
