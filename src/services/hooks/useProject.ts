@@ -3,7 +3,7 @@ import { createClient } from "../prismicio";
 export async function getProjects() {
   const prismic = createClient({});
 
-  const responseProject = await prismic.getByType('projects', { pageSize: 3 });
+  const responseProject = await prismic.getByType('projects', { pageSize: 4 });
 
   const resultsProject = responseProject.results.map(project => {
 
