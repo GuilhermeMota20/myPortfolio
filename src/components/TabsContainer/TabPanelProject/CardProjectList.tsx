@@ -1,4 +1,4 @@
-import { Box, Button, SimpleGrid, Skeleton, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Grid, GridItem, Skeleton, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useState } from 'react';
 import { Project, ProjectsProps } from "../../../types";
 import CardProject from "./CardProject";
@@ -61,16 +61,16 @@ export default function CardProjectList({ projectsPagination }: ProjectsProps) {
 
   return (
     <Stack spacing='2rem'>
-      <SimpleGrid
-        minChildWidth={240}
-        spacing={16}
-      >
+      <Grid templateColumns={['repeat(1, 1fr)', 'repeat(1, 1fr)', 'repeat(2, 1fr)']} gap={16}>
         {projects.map(project => (
           <Skeleton key={project.uid} isLoaded={isLoad}>
-            <CardProject key={project.uid} results={project} />
+
+            <GridItem w='100%' h='100%'>
+              <CardProject key={project.uid} results={project} />
+            </GridItem>
           </Skeleton>
         ))}
-      </SimpleGrid>
+      </Grid>
 
       {projects.length == 0 && (<Text textAlign='center'>Oppss... nothing was found</Text>)}
 
