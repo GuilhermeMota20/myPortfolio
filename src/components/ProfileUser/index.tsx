@@ -1,4 +1,4 @@
-import { Avatar, Badge, Box, Flex, HStack, Stack, Text } from "@chakra-ui/react";
+import { Avatar, Badge, Box, Flex, HStack, Stack, Tag, Text } from "@chakra-ui/react";
 import { FaGithubAlt } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
 import { ImLinkedin2 } from "react-icons/im";
@@ -32,9 +32,47 @@ export default function ProfileUser({ resultsProfile }: ProfileProps) {
 
                 <Text color='gray.500'>{profile.data.profile_work}</Text>
 
-                <Badge mt='4px' ml='1' colorScheme='green'>
-                  {profile.data.profile_desntonibilidade}
-                </Badge>
+                <Flex flexWrap='wrap' direction='row' alignItems='center' justify='center' maxW='600px' textTransform='uppercase'>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    Reactjs
+                  </Tag>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    TypeScript
+                  </Tag>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    Nextjs
+                  </Tag>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    Tailwind-css
+                  </Tag>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    chakra-ui
+                  </Tag>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    Material-ui
+                  </Tag>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    Shadcn-ui
+                  </Tag>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    SASS
+                  </Tag>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    Zustand
+                  </Tag>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    Yup
+                  </Tag>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    Stripe
+                  </Tag>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    Firebase
+                  </Tag>
+                  <Tag variant='solid' colorScheme='gray' mt='4px' ml='1'>
+                    Convex
+                  </Tag>
+                </Flex>
               </Flex>
             </Flex>
 
@@ -47,12 +85,12 @@ export default function ProfileUser({ resultsProfile }: ProfileProps) {
                 icon={<FaGithubAlt />}
                 linkHref={profile.data.profile_git.url}
                 labelTooltip="Go to Github"
-                />
+              />
               <ButtonsSocial
                 icon={<ImLinkedin2 />}
                 linkHref={profile.data.profile_linkedin.url}
                 labelTooltip="Go to LinkedIn"
-                />
+              />
               <ButtonsSocial
                 icon={<SiInstagram />}
                 linkHref={profile.data.profile_instagram.url}

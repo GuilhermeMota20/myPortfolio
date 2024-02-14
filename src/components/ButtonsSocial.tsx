@@ -12,8 +12,6 @@ interface ButtonsSocialProps {
 }
 
 export default function ButtonsSocial({ linkHref, labelTooltip, icon, color, bg }: ButtonsSocialProps) {
-  const { isColorMode } = ColorModeValue();
-
   return (
     <Link href={linkHref ? linkHref : ''}>
       {linkHref
@@ -23,9 +21,8 @@ export default function ButtonsSocial({ linkHref, labelTooltip, icon, color, bg 
             <Button
               rightIcon={icon}
               iconSpacing={0}
-              color={!color ? 'primary.900' : color}
-              bg={!bg ? isColorMode.firstColorModeValue : bg}
-              boxShadow='md'
+              colorScheme='red'
+              variant='solid'
               disabled={!linkHref && true}
             />
           </Tooltip>
@@ -35,9 +32,8 @@ export default function ButtonsSocial({ linkHref, labelTooltip, icon, color, bg 
           <Button
             rightIcon={icon}
             iconSpacing={0}
-            color={!color ? 'primary.900' : color}
-            bg={!bg ? isColorMode.firstColorModeValue : bg}
-            boxShadow='md'
+            colorScheme='red'
+            variant='ghost'
             disabled={!linkHref && true}
           />
         </Tooltip>
