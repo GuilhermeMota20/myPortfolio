@@ -1,10 +1,12 @@
 import { Alert, AlertDescription, Button, CloseButton, Flex, Heading, Icon, Text, Tooltip, useBreakpointValue, useColorMode, useDisclosure } from "@chakra-ui/react";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { ColorModeValue } from "./Utilities/ColorModeValue";
+import { useScrollTop } from "../services/hooks/useScrollTop";
 
 export default function Header() {
   const { toggleColorMode, colorMode, } = useColorMode();
   const { isColorMode } = ColorModeValue();
+  const scrolled = useScrollTop();
 
   const isWideVersio = useBreakpointValue({
     base: true,
@@ -14,7 +16,7 @@ export default function Header() {
   const {
     isOpen: isVisible,
     onClose,
-  } = useDisclosure({ defaultIsOpen: true })
+  } = useDisclosure({ defaultIsOpen: true });
 
   return (
     <>
@@ -56,14 +58,14 @@ export default function Header() {
         as='header'
         position='fixed'
         direction='column'
-        bg={isColorMode.firstColorModeValue}
+        bg={scrolled && isColorMode.firstColorModeValue}
         w='100%'
         h='70px'
         top={isVisible && !isWideVersio ? '43px' : '0'}
         left={0}
         py='1rem'
         px='6'
-        boxShadow='lg'
+        boxShadow={scrolled && 'lg'}
         zIndex={10}
       >
         <Flex
