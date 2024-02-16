@@ -1,12 +1,29 @@
 import { createClient } from "../prismicio";
 
-export async function getProjects() {
+function getPageNumberFromLink(nextPageLink: any) {
+  const regex = /page=(\d+)/;
+  const match = nextPageLink.match(regex);
+
+  if (match && match.length > 1) {
+    return parseInt(match[1]);
+  };
+
+  return null;
+};
+
+export async function getProjects(nextPage = null) {
   const prismic = createClient({});
 
-  const responseProject = await prismic.getByType('projects', { pageSize: 4 });
+  const responseProject = await prismic.getByType('projects', {
+    pageSize: 4,
+    page: nextPage ? getPageNumberFromLink(nextPage) : 1,
+    orderings: {
+      field: "my.projects.is_new_project",
+      direction: "desc"
+    }
+  });
 
   const resultsProject = responseProject.results.map(project => {
-
     const buyProject = String(project.data.buy_project.url);
 
     return {
@@ -21,6 +38,8 @@ export async function getProjects() {
             name_skills: skill.name_skills,
           };
         }),
+        is_new_project: project.data.is_new_project,
+        is_old_project: project.data.is_old_project,
         repo_git: {
           url: project.data.repo_git.url,
         },
@@ -31,15 +50,15 @@ export async function getProjects() {
           url: buyProject,
         },
       }
-    }
+    };
   });
 
   const projectsPagination = {
-    next_page: responseProject.next_page,
+    next_page: responseProject?.next_page,
     results: resultsProject,
   };
 
   return {
     projectsPagination,
   };
-}
+};

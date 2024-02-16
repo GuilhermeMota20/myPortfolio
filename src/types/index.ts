@@ -8,6 +8,8 @@ export interface Project {
     skills: {
       name_skills: string;
     }[];
+    is_new_project: boolean;
+    is_old_project: boolean;
     repo_git: {
       url: string;
     };

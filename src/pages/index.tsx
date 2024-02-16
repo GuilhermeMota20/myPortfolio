@@ -35,6 +35,7 @@ export default function Home({ resultsProfile, projectsPagination }) {
         alignItems='center'
         gap={9}
         bg={isColorMode.secondColorModeValueSecond}
+        scrollBehavior="smooth"
       >
         <Header />
         <ProfileUser resultsProfile={resultsProfile} />

@@ -14,7 +14,19 @@ export default function CardProject({ results }: CardProjectProps) {
 
   return (
     <Card maxW={460} maxH={560} h='100%' boxShadow='lg' rounded='lg' bg={isColorMode.firstColorModeValue} mx='auto' key={results.uid}>
-      <CardBody h='100%' display='flex' flexDirection='column' justifyContent='space-between'>
+      <CardBody position="relative" h='100%' display='flex' flexDirection='column' justifyContent='space-between'>
+        {results?.data?.is_new_project && (
+          <Tag position="absolute" top={2} right={2} variant='solid' colorScheme='green' textTransform='uppercase'>
+            New
+          </Tag>
+        )}
+
+        {results?.data?.is_old_project && (
+          <Tag position="absolute" top={2} right={2} variant='solid' colorScheme='red' textTransform='uppercase'>
+            Old
+          </Tag>
+        )}
+
         <Image
           src={results.data.banner.url}
           alt={results.data.title}
@@ -62,7 +74,6 @@ export default function CardProject({ results }: CardProjectProps) {
             </Flex>
           </Flex>
         </Stack>
-
       </CardFooter>
     </Card>
   )
